@@ -1,5 +1,3 @@
----
-
 
 # **AgriEnergy Connect Prototype**
 
