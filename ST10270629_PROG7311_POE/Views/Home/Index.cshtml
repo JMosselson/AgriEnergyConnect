@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ST10270629_PROG7311_POE.Models.ApplicationUser> SignInManager
+@inject UserManager<ST10270629_PROG7311_POE.Models.ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-3 text-success">AgriEnergy Connect</h1>
+    <p class="lead">
+        Harvesting Innovation for a Sustainable Future in Agriculture!
+    </p>
+    <hr class="my-4" />
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="alert alert-info" role="alert">
+            Welcome, <strong>@UserManager.GetUserName(User)</strong>! Navigate through the intuitive menu above to manage your profile or explore our platform features.
+        </div>
+
+        <form class="form-inline justify-content-center" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="btn btn-warning btn-lg">Logout</button>
+        </form>
+    }
+    else
+    {
+        <div class="mb-4">
+            <p class="h5 text-muted">
+                AgriEnergy Connect empowers Employees and Farmers to collaborate in creating eco-friendly solutions and efficient farm management systems.
+            </p>
+            <p class="h6 text-muted">
+                Explore features like dynamic product tracking, real-time analytics, and green energy integration to boost productivity and sustainability.
+            </p>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-lg me-2" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="btn btn-secondary btn-lg" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </div>
+        <div class="mt-5 text-muted">
+            <em>
+                AgriEnergy Connect – Bridging the gap between technology and nature for a greener tomorrow. <br />
+                Current Time in Johannesburg: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            </em>
+        </div>
+    }
+
+    <div class="mt-5">
+        <img src="~/images/agrilogo.png" alt="AgriEnergy Connect" class="img-fluid rounded shadow" style="max-height:400px;" />
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card border-success mb-3">
+                <div class="card-header bg-success text-white">Sustainable Practices</div>
+                <div class="card-body">
+                    <p class="card-text">Access the latest techniques in sustainable farming and green energy solutions.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-info mb-3">
+                <div class="card-header bg-info text-white">Real-Time Data</div>
+                <div class="card-body">
+                    <p class="card-text">Monitor your farm's progress with live analytics and dashboard insights.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-warning mb-3">
+                <div class="card-header bg-warning text-dark">Collaborative Innovation</div>
+                <div class="card-body">
+                    <p class="card-text">Connect with experts and fellow farmers to share ideas and enhance productivity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

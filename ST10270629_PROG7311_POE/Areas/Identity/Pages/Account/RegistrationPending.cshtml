@@ -1,0 +1,21 @@
+﻿@page
+@model ST10270629_PROG7311_POE.Areas.Identity.Pages.Account.RegistrationPendingModel
+@{
+    ViewData["Title"] = "Registration Pending";
+    // Optional: Use the Identity layout if one exists and is suitable, otherwise it uses the default
+    // Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p class="lead">Thank you for registering!</p>
+    <hr />
+    <p>Your account has been created successfully.</p>
+    <p>
+        An administrator needs to approve your account and designate you as a Farmer before you can log in and access farmer features.
+        Please wait for confirmation.
+    </p>
+    <p class="mt-4">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back to Home Page</a>
+    </p>
+</div>

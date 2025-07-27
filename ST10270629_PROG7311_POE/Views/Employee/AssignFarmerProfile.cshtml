@@ -1,0 +1,52 @@
+﻿@model ST10270629_PROG7311_POE.ViewModels.AssignFarmerProfileViewModel
+
+@{
+    ViewData["Title"] = "Assign Farmer Profile";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>Adding profile details for user: <strong>@Model.Email</strong></p>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AssignFarmerProfile" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            @* Include UserId in a hidden field so it posts back *@
+            <input type="hidden" asp-for="UserId" />
+            <div class="mb-3">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" readonly disabled />
+            </div>
+
+            <h4>Farmer Profile Details</h4>
+            <div class="mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ContactNumber" class="control-label"></label>
+                <input asp-for="ContactNumber" class="form-control" />
+                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 mt-4">
+                <button type="submit" class="btn btn-success">Assign Role & Create Profile</button>
+                <a asp-action="FindUserToMakeFarmer" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,49 @@
+﻿@model ST10270629_PROG7311_POE.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Add Product";
+     var categories = ViewBag.Categories as List<string> ?? new List<string>();
+}
+
+<h1>Add New Product</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6"> 
+        <form asp-action="AddProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                 <label asp-for="Category" class="control-label"></label>
+                <select asp-for="Category" class="form-select">
+                     <option value="">-- Select Category --</option>
+                     @foreach (var category in categories)
+                     {
+                        <option value="@category">@category</option>
+                     }
+                </select>               
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ProductionDate" class="control-label"></label>
+                <input asp-for="ProductionDate" class="form-control" type="date" />
+                <span asp-validation-for="ProductionDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Add Product</button>
+                <a asp-action="MyProducts" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

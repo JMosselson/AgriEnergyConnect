@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ST10270629_PROG7311_POE.Models.FarmerModel> 
+
+@{
+    ViewData["Title"] = "Farmer List";
+}
+
+<h1>Farmers</h1>
+
+
+<p>
+    <a class="btn btn-success" asp-controller="Employee" asp-action="FindUserToMakeFarmer">
+        <i class="fas fa-user-plus"></i> Assign Farmer Role
+    </a>
+</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                 Login Email 
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.ContactNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.User!.Email) 
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <a asp-action="ViewFarmerProducts" asp-route-farmerId="@item.FarmerId" class="btn btn-sm btn-info">View Products</a>
+            </td>
+        </tr>}
+    </tbody>
+</table>

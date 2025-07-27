@@ -1,0 +1,41 @@
+﻿@model ST10270629_PROG7311_POE.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h1>Delete Product</h1>
+
+<h3>Are you sure you want to delete this product?</h3>
+<p class="text-danger">This action cannot be undone.</p>
+<div>
+    <h4>Product Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ProductionDate)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ProductionDate)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteProduct">
+        @* This targets the POST DeleteProduct action (which has ActionName="DeleteProduct") *@
+        <input type="hidden" asp-for="ProductId" /> @* Hidden input for ProductId for the POST action *@
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="MyProducts" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

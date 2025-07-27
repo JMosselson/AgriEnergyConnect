@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Web Applications\\ST10270629_PROG7311_POE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F5CA360-A77B-4568-8410-067566FEDB56}|ST10270629_PROG7311_POE\\ST10270629_PROG7311_POE.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio web applications\\st10270629_prog7311_poe\\st10270629_prog7311_poe\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{3F5CA360-A77B-4568-8410-067566FEDB56}|ST10270629_PROG7311_POE\\ST10270629_PROG7311_POE.csproj|solutionrelative:st10270629_prog7311_poe\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Web Applications\\ST10270629_PROG7311_POE\\ST10270629_PROG7311_POE\\README.md",
+              "RelativeDocumentMoniker": "ST10270629_PROG7311_POE\\README.md",
+              "ToolTip": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Web Applications\\ST10270629_PROG7311_POE\\ST10270629_PROG7311_POE\\README.md",
+              "RelativeToolTip": "ST10270629_PROG7311_POE\\README.md",
+              "ViewState": "AgIAADAAAAAAAAAAAAAmwEEAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-05-13T06:35:47.479Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ST10270629_PROG7311_POE.Models.ProductModel>
+
+@{
+    ViewData["Title"] = "My Products";
+}
+
+<h1>My Products</h1>
+
+<p>
+    <a asp-action="AddProduct" class="btn btn-primary">Add New Product</a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>You have not added any products yet.</p>
+}
+else
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductionDate)
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductionDate)
+                    </td>
+                    <td>
+                        @* Edit Link/Button *@
+                        <a asp-action="EditProduct" asp-route-id="@item.ProductId" class="btn btn-sm btn-warning">Edit</a>
+                        <span> | </span> 
+                        @* Delete Link/Button *@
+                        <a asp-action="DeleteProduct" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,58 @@
+﻿@model ST10270629_PROG7311_POE.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Edit Product";
+    var categories = ViewBag.Categories as List<string> ?? new List<string>();
+}
+
+<h1>Edit Product</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="EditProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @* Hidden input for ProductId is crucial for the POST action *@
+            <input type="hidden" asp-for="ProductId" />
+            @* Hidden input for FarmerId ensures it's carried over (though controller re-validates/sets it) *@
+            <input type="hidden" asp-for="FarmerId" />
+
+            <div class="mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="Category" class="form-select">
+                    <option value="">-- Select Category --</option>
+                    @foreach (var category in categories)
+                    {
+                        @* Select the current category *@
+                        <option value="@category" selected="@(Model.Category == category)">@category</option>
+                    }
+                </select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ProductionDate" class="control-label"></label>
+                <input asp-for="ProductionDate" class="form-control" type="date" />
+                <span asp-validation-for="ProductionDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a asp-action="MyProducts" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
